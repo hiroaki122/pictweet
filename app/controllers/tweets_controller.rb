@@ -14,4 +14,8 @@ class TweetsController < ApplicationController
     def tweet_params
       params.permit(:name, :image, :text)
     end
+
+    def move_to_index
+      redirect_to action: :index unless user_signed_in?
+    end
 end
